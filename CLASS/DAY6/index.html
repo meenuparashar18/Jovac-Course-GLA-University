@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container{
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            width: 350px;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .field{
+            margin-bottom: 15px;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .invalid{
+            border: 2px solid red;
+        }
+
+        .error{
+            color: red;
+            font-size: 14px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+
+        <form id="myForm">
+
+            <div class="field">
+                <input type="text" id="name" placeholder="Enter Name">
+                <small class="error"></small>
+            </div>
+
+            <div class="field">
+                <input type="email" id="email" placeholder="Enter Email">
+                <small class="error"></small>
+            </div>
+
+            <div class="field">
+                <input type="password" id="password" placeholder="Enter Password">
+                <small class="error"></small>
+            </div>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("myForm");
+
+        form.addEventListener("submit", function(event){
+
+            event.preventDefault();
+
+            const inputs = document.querySelectorAll("input");
+
+            inputs.forEach(function(input){
+
+                const error = input.nextElementSibling;
+
+                if(input.value.trim() === ""){
+                    error.textContent = "Invalid Field";
+                    input.classList.add("invalid");
+                }
+                else{
+                    error.textContent = "";
+                    input.classList.remove("invalid");
+                }
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

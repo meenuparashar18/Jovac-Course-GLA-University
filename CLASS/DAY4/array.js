@@ -1,3 +1,9 @@
+// array ke kuch function
+//
+
+
+
+
 //callback function
 //function that is passed as an argument to another function and is executed after some operation is completed
 // function greeting (name){
@@ -88,7 +94,7 @@ console.log(target)
 // names.sort()
 // console.log(names)
 
-flat plate
+//flat plate
 
 
 const cart = [
